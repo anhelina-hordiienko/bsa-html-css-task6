@@ -1,0 +1,187 @@
+:root {
+    --left-right-padding: 5%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    font-size: 16px;
+}
+body {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+
+/* Header styles */
+@keyframes slide-down {
+    from {top: -100%}
+    to {top: 0}
+  }
+
+header {
+    padding: 25px var(--left-right-padding);
+    background-color: rgb(248,249,252);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    
+    animation: slide-down 1s both;
+}
+
+img.logo {
+    width: 105px;
+    height: auto;
+}
+
+nav {
+    display: flex;
+}
+
+.notification {
+    margin: 0 30px;
+    color: rgb(190,201,218);
+    font-size: 1.3rem;
+    align-self: center;
+}
+
+.avatar-container {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(240,153,30);
+    color: rgb(255,255,255);
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.notification:hover,
+.menuToggle input:hover ~ .avatar-container {
+    filter: brightness(85%);
+}
+
+.menuToggle {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.menuToggle a
+{
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.menuToggle a:hover
+{
+    background-color: rgb(248,249,252);
+}
+
+.menuToggle input {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+.menu .user-name {
+    color: rgb(157,167,177);
+    border-bottom: 2px solid rgb(157,167,177);
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.menu {
+    background-color: rgb(255,255,255);
+    padding: 15px 25px;
+    width: max-content;
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    box-shadow: 0 0 35px 10px rgb(235,236,240);
+    display: none;
+}
+
+.menuToggle input:checked ~ .menu {
+    display: block;
+}
+
+
+/* Main block styles */
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px var(--left-right-padding);
+}
+
+.main-content-wrapper {
+    text-align: center;
+}
+
+.fa-frown {
+    font-size: 7rem;
+}
+
+.main-content-wrapper h1 {
+    font-size: 4.1rem;
+    margin: 0.5rem 0;
+}
+
+.main-content-wrapper h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+
+/* Aside block styles */
+.info-blocks-wrapper {
+    padding: 10px 15px;
+    width: fit-content;
+    position: absolute;
+    z-index: 4;
+    bottom: 0;
+    right: 0;
+}
+
+.info-block {
+    padding: 15px 20px;
+    margin-top: 20px;
+    color: rgb(255,255,255);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.info-block h3 {
+    font-weight: bold;
+}
+
+.info-block .icon {
+    font-size: 1.3rem;
+}
+
+.info-block.error {
+    background-color: rgba(204, 62, 52, 0.66);
+}
+
+.info-block.success {
+    background-color: rgba(98, 181, 97, 0.66);
+}
